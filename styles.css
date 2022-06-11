@@ -1,0 +1,111 @@
+html { 
+    background: url(Assets/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+  }
+
+h1 {
+    text-align: center;
+    color: black;
+    border-radius: 10px;
+    background-color: rgba(127, 255, 212, 0.9);
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 1px solid black;
+    font-size: 60px;
+    font-family: 'HelloBigDeal', sans-serif;
+}
+
+.play {
+    border-radius: 210px;
+    display: block;
+    height: 45vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    background-color: rgba(127, 255, 212, 0.9);
+    transition-duration: 1000ms;
+}
+
+.play:hover {
+    background-color:rgba(127, 255, 212);
+    transform: scale(1.1);
+}
+
+.large-screen-view {
+    display: flex;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.a {
+    background-color:blue;
+    height: 30vh;
+    width: 50%;
+}
+
+.b {
+    background-color: green;
+    height: 30vh;
+    width: 50%;
+}
+
+.c {
+    background-color: orange;
+    height: 30vh;
+    width: 50%;
+}
+
+.d {
+    background-color: yellow;
+    height: 30vh;
+    width: 50%;
+}
+
+.card {
+    background-color:aqua;
+    height: 30%;
+    margin: 2px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 35px;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    .play {
+        margin-top: 14%;
+    }
+}
+
+@media (max-width: 800px) {
+    .body {
+        display: flex;
+    }
+    .large-screen-view {
+        flex-direction: column;
+    }
+    .a {
+        width: 100%;
+    }
+    
+    .b {
+        width: 100%;
+    }
+    
+    .c {
+        width: 100%;
+    }
+    
+    .d {
+        width: 100%;
+    }
+}
