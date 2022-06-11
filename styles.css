@@ -1,3 +1,6 @@
+/* Entry Page Styling: */
+/* The H1 and background picture styling is applies on every page. */
+/* Adds background to picture to website. */
 html { 
     background: url(Assets/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -6,6 +9,7 @@ html {
             background-size: cover;
   }
 
+/* Adds styling to Header */
 h1 {
     text-align: center;
     color: black;
@@ -20,6 +24,7 @@ h1 {
     font-family: 'HelloBigDeal', sans-serif;
 }
 
+/* Adds Styling to Button on first page */
 .play {
     border-radius: 210px;
     display: block;
@@ -31,14 +36,17 @@ h1 {
     transition-duration: 1000ms;
 }
 
+/* Adds transformation to button - it gets larger and loses it's opacity. */
 .play:hover {
     background-color:rgba(127, 255, 212);
     transform: scale(1.1);
 }
 
+/* Levels Page Styling: */
+/* I have the level cards split into two divs. The large-screen-view holds everything so I could add flex to the divs named "a". They are there ones with the blue background color. */
+/* Inside the "a" div there is the cards. These link to the levels. */
 .large-screen-view {
     display: flex;
-    border: 1px solid black;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -47,32 +55,28 @@ h1 {
     background-color:blue;
     height: 30vh;
     width: 50%;
-}
-
-.b {
-    background-color: green;
-    height: 30vh;
-    width: 50%;
-}
-
-.c {
-    background-color: orange;
-    height: 30vh;
-    width: 50%;
-}
-
-.d {
-    background-color: yellow;
-    height: 30vh;
-    width: 50%;
+    display: flex
 }
 
 .card {
     background-color:aqua;
-    height: 30%;
-    margin: 2px;
+    margin: 20px;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    border-radius: 10px;
+    flex-direction: row;
+    align-items: stretch;
+    flex-grow: 3;
+    transition-duration: 1000ms;
 }
 
+/* I added a similar transformation to the button above. The only difference is that it is a difference color / opacity. */
+.card:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+/* I needed to reformat the page for small screens. The cards stack in 3 x 4 rows rather than 2 x 6. Also, there are little formating changes I needed to change. */
 @media (max-width: 600px) {
     h1 {
         font-size: 35px;
@@ -96,16 +100,26 @@ h1 {
     .a {
         width: 100%;
     }
-    
-    .b {
+
+    .card {
+        margin-left: 2.5vh;
+        margin-right: 2.5vh;
+    }
+}
+
+@media (max-width: 1000px) {
+    .body {
+        display: flex;
+    }
+    .large-screen-view {
+        flex-direction: column;
+    }
+    .a {
         width: 100%;
     }
-    
-    .c {
-        width: 100%;
-    }
-    
-    .d {
-        width: 100%;
+
+    .card {
+        margin-left: 2.2vh;
+        margin-right: 2.2vh;
     }
 }
