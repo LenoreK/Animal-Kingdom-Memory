@@ -58,7 +58,7 @@ h1 {
     display: flex
 }
 
-.card {
+.level1, .level2, .level3, .level4, .level5, .level6, .level7, .level8, .level9, .level10, .level11, .level12 {
     background-color:aqua;
     margin: 20px;
     margin-left: 4vh;
@@ -74,6 +74,116 @@ h1 {
 .card:hover {
     background-color:rgba(127, 255, 212, 0.5);
     transform: scale(1.1);
+}
+
+/* The level-format page:
+The goals of this page is to apply each level dynamically through javascript! Let's hope I can do it! */
+
+.body {
+    display: flex;
+    height: 65vh;
+}
+
+.stats {
+    background-color: white;
+    flex-grow: 2;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    border-radius: 10px;
+}
+
+.grid {
+    background-color: white;
+    flex-grow: 5;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    border-radius: 10px;
+}
+
+/* The parent of a container must get display flex */
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.container {
+    padding-left: 10px;
+    background-color: blue;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* This is styling for the two boxes for the score, timer, and turns. */
+.points {
+    background-color: white;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 4;
+    border-radius: 10px
+}
+
+.timer {
+    background-color: white;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 4;
+    border-radius: 10px  
+}
+
+.turns {
+    background-color: white;
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 4;
+    border-radius: 10px      
+}
+
+/* This is the styling for the clock animation */
+.clock {
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-color:aqua;
+    border-radius: 120px;
+}
+
+@keyframes spin {
+    from{
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+/* This is the styling for the trophy icon */
+.trophy {
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    background-color:aqua;
+    border-radius: 120px;
+}
+
+/* This is the styling for the restart icon */
+.restart {
+    height: 100px;
+    padding: 10px;
+    margin: 10px;
+    background-color:aqua;
+    border-radius: 120px;    
 }
 
 /* I needed to reformat the page for small screens. The cards stack in 3 x 4 rows rather than 2 x 6. Also, there are little formating changes I needed to change. */
