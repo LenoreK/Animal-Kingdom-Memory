@@ -71,7 +71,62 @@ h1 {
 }
 
 /* I added a similar transformation to the button above. The only difference is that it is a difference color / opacity. */
-.card:hover {
+.level1:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level2:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level3:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level4:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level5:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level6:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level7:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level8:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level9:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level10:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level11:hover {
+    background-color:rgba(127, 255, 212, 0.5);
+    transform: scale(1.1);
+}
+
+.level12:hover {
     background-color:rgba(127, 255, 212, 0.5);
     transform: scale(1.1);
 }
