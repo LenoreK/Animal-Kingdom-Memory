@@ -15,6 +15,9 @@ const level11 = document.querySelector('.level11')
 const level12 = document.querySelector('.level12')
 const redirect = document.querySelector('.redirect')
 
+const grid = document.querySelector('.grid')
+console.log(grid)
+
 levelButtonArray = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12]
 
 levelArray = [
@@ -92,34 +95,32 @@ cardArrayLevelThree = [
 ]
 ]
 
+selectedCards = []
+selectedCardId = []
+
 function findLevel(index) {
     let levelCards = levelArray[(index - 1)]
     let level = levelButtonArray[(index - 1)]
+    levelCards.sort(() => 0.5 - Math.random())
+    console.log(levelCards)
+    console.log(level)
+    for (let i = 0; i <levelArray.length; i++) {
+        const card = document.createElement('img')
+        card.setAttribute('src', 'Assets/cartoon.webp')
+        card.setAttribute('data-id', i)
+        card.addEventListener('click', flipCard)
+        grid.appendChild(card)
+    }
 }
 
 findLevel(1)
-// const grid = document.querySelector('.grid')
-// const points = document.querySelector('.points')
-// levelChosen = []
-// arrayChosenId = []
 
-// function redirect() {
-//     for (let i = 0; i < levelArray.length; i++) {
-//       level.setAttribute('src', 'level-format.html')
-//       level.setAttribute('data-id', i)
-//       level.addEventListener('click', chooseLevel)
-//       console.log(level)
-//     }
-//   }
-
-// redirect()
-
-//   function chooseLevel() {
-//     const arrayId = this.getAttribute('data-id')
-//     levelChosen.push(levelArray[arrayId].name)
-//     arrayChosenId.push(arrayId)
-//     this.setAttribute('src', cardArray[cardId].img)
-//     if (cardsChosen.length === 2) {
-//       setTimeout( checkForMatch, 500)
-//     }
-//   }
+function flipCard() {
+    const Id = this.getAttribute('data-id')
+    selectedCards.push(cardArray[Id].name)
+    selectedCardId.push(Id)
+    this.setAttribute('src', cardArray[Id].img)
+    if (selectedCards.length === 2) {
+        setTimeout( checkForMatch, 500)
+    }
+}

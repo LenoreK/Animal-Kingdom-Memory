@@ -68,6 +68,7 @@ h1 {
     align-items: stretch;
     flex-grow: 3;
     transition-duration: 1000ms;
+    display: flex;
 }
 
 /* I added a similar transformation to the button above. The only difference is that it is a difference color / opacity. */
@@ -129,6 +130,15 @@ h1 {
 .level12:hover {
     background-color:rgba(127, 255, 212, 0.5);
     transform: scale(1.1);
+}
+
+/* This makes it so the link takes up the whole container. I also added flex in the parent container to make this work. */
+.levelLink {
+    flex-grow: 5;
+    border-radius: 10px;
+    text-align: center;
+    background-color: green;
+    font-size: 100px;
 }
 
 /* The level-format page:
