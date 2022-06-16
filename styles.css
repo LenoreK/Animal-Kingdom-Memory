@@ -137,7 +137,6 @@ h1 {
     flex-grow: 5;
     border-radius: 10px;
     text-align: center;
-    background-color: green;
     font-size: 100px;
 }
 
@@ -163,6 +162,13 @@ The goals of this page is to apply each level dynamically through javascript! Le
     margin-left: 2vh;
     margin-right: 2vh;
     border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    height: 100px;
+    padding: 10px;
 }
 
 /* The parent of a container must get display flex */
@@ -180,13 +186,12 @@ The goals of this page is to apply each level dynamically through javascript! Le
     margin: 10px;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
 }
 
 /* This is styling for the two boxes for the score, timer, and turns. */
 .points {
     background-color: white;
-    height: 100px;
+    height: 12vh;
     padding: 10px;
     margin: 10px;
     flex-grow: 4;
@@ -195,7 +200,7 @@ The goals of this page is to apply each level dynamically through javascript! Le
 
 .timer {
     background-color: white;
-    height: 100px;
+    height: 12vh;
     padding: 10px;
     margin: 10px;
     flex-grow: 4;
@@ -204,7 +209,7 @@ The goals of this page is to apply each level dynamically through javascript! Le
 
 .turns {
     background-color: white;
-    height: 100px;
+    height: 12vh;
     padding: 10px;
     margin: 10px;
     flex-grow: 4;
@@ -213,7 +218,7 @@ The goals of this page is to apply each level dynamically through javascript! Le
 
 /* This is the styling for the clock animation */
 .clock {
-    height: 100px;
+    height: 12vh;
     padding: 10px;
     margin: 10px;
     animation-name: spin;
@@ -235,7 +240,7 @@ The goals of this page is to apply each level dynamically through javascript! Le
 
 /* This is the styling for the trophy icon */
 .trophy {
-    height: 100px;
+    height: 12vh;
     padding: 10px;
     margin: 10px;
     background-color:aqua;
@@ -244,7 +249,7 @@ The goals of this page is to apply each level dynamically through javascript! Le
 
 /* This is the styling for the restart icon */
 .restart {
-    height: 100px;
+    height: 12vh;
     padding: 10px;
     margin: 10px;
     background-color:aqua;
@@ -296,5 +301,8 @@ The goals of this page is to apply each level dynamically through javascript! Le
     .card {
         margin-left: 2.2vh;
         margin-right: 2.2vh;
+    }
+    h1 {
+        font-size: 40px;
     }
 }

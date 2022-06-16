@@ -15,28 +15,38 @@ const level11 = document.querySelector('.level11')
 const level12 = document.querySelector('.level12')
 const redirect = document.querySelector('.redirect')
 
-const grid = document.querySelector('.grid')
-console.log(grid)
-
 levelButtonArray = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12]
 
-levelArray = [
+document.addEventListener('DOMContentLoaded', () => {
+
 cardArrayLevelOne = [
     {
         name: 'bear',
-        img: 'Assets/bear.png'
+        img: 'Assets/bear.png',
+        img2: 'Assets/cartoon.webp',
+        img3: 'Assets/white.jpg',
+        id: 1
     },
     {
         name: 'buffalo',
-        img: 'Assets/buffalo.png'
+        img: 'Assets/buffalo.png',
+        img2: 'Assets/cartoon.webp',
+        img3: 'Assets/white.jpg',
+        id: 2
     },
     {
         name: 'bear',
-        img: 'Assets/bear.png'
+        img: 'Assets/bear.png',
+        img2: 'Assets/cartoon.webp',
+        img3: 'Assets/white.jpg',
+        id: 3
     },
     {
         name: 'buffalo',
-        img: 'Assets/buffalo.png'
+        img: 'Assets/buffalo.png',
+        img2: 'Assets/cartoon.webp',
+        img3: 'Assets/white.jpg',
+        id: 4
     }
 ],
 
@@ -93,19 +103,18 @@ cardArrayLevelThree = [
         img: 'Assets/bird.png'
     }   
 ]
-]
+
+const points = document.querySelector('.points')
+const grid = document.querySelector('.grid')
 
 selectedCards = []
 selectedCardId = []
+cardsWon = []
 
-function findLevel(index) {
-    let levelCards = levelArray[(index - 1)]
-    let level = levelButtonArray[(index - 1)]
-    levelCards.sort(() => 0.5 - Math.random())
-    console.log(levelCards)
-    console.log(level)
-    for (let i = 0; i <levelArray.length; i++) {
-        const card = document.createElement('img')
+function createBoard() {
+    cardArrayLevelOne.sort(() => 0.5 - Math.random())
+    for (let i = 0; i < cardArrayLevelOne.length; i++) {
+        let card = document.createElement('img')
         card.setAttribute('src', 'Assets/cartoon.webp')
         card.setAttribute('data-id', i)
         card.addEventListener('click', flipCard)
@@ -113,14 +122,48 @@ function findLevel(index) {
     }
 }
 
-findLevel(1)
-
 function flipCard() {
-    const Id = this.getAttribute('data-id')
-    selectedCards.push(cardArray[Id].name)
+    Id = this.getAttribute('data-id')
+    selectedCards.push(cardArrayLevelOne[Id])
     selectedCardId.push(Id)
-    this.setAttribute('src', cardArray[Id].img)
+    this.setAttribute('src', cardArrayLevelOne[Id].img)
     if (selectedCards.length === 2) {
-        setTimeout( checkForMatch, 500)
-    }
+         setTimeout( checkForMatch, 500)
+     }
 }
+
+function checkForMatch(card) {
+    let cards = document.querySelector('.grid img')
+    let cardOne = selectedCards[0]
+    let cardTwo = selectedCards[1]
+    let oneId = selectedCardId[0]
+    let twoId = selectedCardId[1]
+    
+    if (cardOne.id === cardTwo.id) {
+        cards.setAttribute('src', cardArrayLevelOne[oneId].img2)
+        cards.setAttribute('src', cardArrayLevelOne[twoId].img2)
+        console.log('You choose the same card!')
+    } else if (cardOne.img === cardTwo.img) {
+        console.log('You have found a match')
+        cardOne.setAttribute('src', 'Assets/white.jpg')
+        cardTwo.setAttribute('src', 'Assets/white.jpg')
+        cards.removeEventListener('click', flipCard)
+        cards.removeEventListener('click', flipCard)
+        cardsWon.push(selectedCards)
+    } else if (cardOne.img !== cardTwo.img) {
+        cards.setAttribute('src', cardOne.img2)
+        cards.setAttribute('src', cardTwo.img2)
+        console.log("Sorry! Try Again!")
+    }
+    // points.textContent = cardsWon.length
+    // console.log(cardsWon)
+    // selectedCards = []
+    // selectedCardId = []
+
+    // if (cardsWon.length === levelArray[Id].length/2) {
+    //     resultDisplay.innerHTML = "Congratulations! You found all the matches!"
+    // }
+}
+
+createBoard(1)
+})
