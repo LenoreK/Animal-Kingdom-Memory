@@ -164,6 +164,9 @@ The goals of this page is to apply each level dynamically through javascript! Le
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
 }
 
 img {

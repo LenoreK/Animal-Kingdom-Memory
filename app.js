@@ -1,22 +1,6 @@
 //function that adds numbers to eat array - sends user to that game
 //populates screen with relevant array
 
-const level1 = document.querySelector('.level1')
-const level2 = document.querySelector('.level2')
-const level3 = document.querySelector('.level3')
-const level4 = document.querySelector('.level4')
-const level5 = document.querySelector('.level5')
-const level6 = document.querySelector('.level6')
-const level7 = document.querySelector('.level7')
-const level8 = document.querySelector('.level8')
-const level9 = document.querySelector('.level0')
-const level10 = document.querySelector('.level10')
-const level11 = document.querySelector('.level11')
-const level12 = document.querySelector('.level12')
-const redirect = document.querySelector('.redirect')
-
-levelButtonArray = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12]
-
 document.addEventListener('DOMContentLoaded', () => {
 
 cardArrayLevelOne = [
@@ -106,6 +90,7 @@ cardArrayLevelThree = [
 
 const points = document.querySelector('.points')
 const grid = document.querySelector('.grid')
+let card = document.querySelector('.card img')
 
 selectedCards = []
 selectedCardId = []
@@ -128,16 +113,20 @@ function flipCard() {
     selectedCardId.push(Id)
     this.setAttribute('src', cardArrayLevelOne[Id].img)
     if (selectedCards.length === 2) {
-         setTimeout( checkForMatch, 500)
-     }
+        setTimeout( checkForMatch, 500)
+    }
 }
 
-function checkForMatch(card) {
+function checkForMatch() {
     let cards = document.querySelector('.grid img')
     let cardOne = selectedCards[0]
     let cardTwo = selectedCards[1]
     let oneId = selectedCardId[0]
     let twoId = selectedCardId[1]
+    let CardsWon = []
+
+    console.log(cards)
+    console.log(cardOne)
     
     if (cardOne.id === cardTwo.id) {
         cards.setAttribute('src', cardArrayLevelOne[oneId].img2)
@@ -145,25 +134,28 @@ function checkForMatch(card) {
         console.log('You choose the same card!')
     } else if (cardOne.img === cardTwo.img) {
         console.log('You have found a match')
-        cardOne.setAttribute('src', 'Assets/white.jpg')
-        cardTwo.setAttribute('src', 'Assets/white.jpg')
+        cards.removeAttribute('src', cardArrayLevelOne[twoId].img2)
+        cardsWon.removeAttribute('src', cardArrayLevelOne[oneId].img2)
         cards.removeEventListener('click', flipCard)
         cards.removeEventListener('click', flipCard)
         cardsWon.push(selectedCards)
+        selectedCards.pop(twoId)
+        selectedCards.pop(oneId)
+        selectedCardId.pop(1)
+        selectedCardId.pop(0)
     } else if (cardOne.img !== cardTwo.img) {
-        cards.setAttribute('src', cardOne.img2)
-        cards.setAttribute('src', cardTwo.img2)
+        cards.setAttribute('src', cardArrayLevelOne[oneId].img2)
+        cards.setAttribute('src', cardArrayLevelOne[twoId].img2)
         console.log("Sorry! Try Again!")
     }
-    // points.textContent = cardsWon.length
-    // console.log(cardsWon)
-    // selectedCards = []
-    // selectedCardId = []
-
-    // if (cardsWon.length === levelArray[Id].length/2) {
-    //     resultDisplay.innerHTML = "Congratulations! You found all the matches!"
-    // }
+    points.textContent = cardsWon.length
+    selectedCards = []
+    selectedCardId = []
+    
+    if (cardsWon.length === levelArray[Id].length/2) {
+        resultDisplay.innerHTML = "Congratulations! You found all the matches!"
+    }
 }
 
-createBoard(1)
+createBoard()
 })
